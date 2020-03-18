@@ -19,7 +19,7 @@ If people were 100% immobile that would mean <img src="https://render.githubuser
 
 Here <img src="https://render.githubusercontent.com/render/math?math=0.4"> is arbitrary.
 
-**How does it look like ?**
+**What does it look like ?**
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/40028739/76973966-e6380880-6930-11ea-8ec8-cf7c3003f69f.png" alt="drawing"/>
