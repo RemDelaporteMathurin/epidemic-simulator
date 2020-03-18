@@ -13,7 +13,7 @@ The temporal evolution of each population can be modelled with the following sys
 where <img src="https://render.githubusercontent.com/render/math?math=K_c"> is the contamination probability, <img src="https://render.githubusercontent.com/render/math?math=K_r"> is the recovery probability, <img src="https://render.githubusercontent.com/render/math?math=K_d"> is the death probability.
 
 We'll assume the contamination probability increases with people's mobility <img src="https://render.githubusercontent.com/render/math?math=v">.
-If people were 100% immobile that would mean <img src="https://render.githubusercontent.com/render/math?math=v = 0"> .
+If people were 100% immobile that would mean <img src="https://render.githubusercontent.com/render/math?math=v = 0"> . We'll assume that usual people's mobility is <img src="https://render.githubusercontent.com/render/math?math=v = 1"> .
 
 <img src="https://render.githubusercontent.com/render/math?math=K_c = 0.4 \cdotv">
 
@@ -46,7 +46,7 @@ What will happen then ?
 <img src="https://user-images.githubusercontent.com/40028739/76974014-f9e36f00-6930-11ea-8da8-2cf38e16fe74.png" alt="drawing" width="420"/><img src="https://user-images.githubusercontent.com/40028739/76974237-3fa03780-6931-11ea-9d15-87671ad77bbf.png" alt="drawing" width="420"/>
 
 We added to the previous graphs dashed lines corresponding to the extended model with a hospital saturation limit.
-If people's mobility is not reduced enough the number of sick people increases by 12%! But more important is that **the number of deaths almost doubled**!
+If people's mobility is not reduced enough **the number of sick people increases by 12%!** But more important is that **the number of deaths almost doubled**!
 
 That's pretty much it!
 The simple code I used is available if you wish to play with it and tweak the parameters a little!
