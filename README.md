@@ -3,13 +3,7 @@
 
 Let's name $$P_h$$ the healthy population, $$P_c$$ the contaminated population, $$P_r$$ the population which has recovered from the disease and produced its own antibodies and $$P_d$$ the population that has died.
 The temporal evolution of each population can be modelled with the following system of equations:
-$$\left\{\begin{array}{l}
-\frac{\partial P_{h}}{\partial t}=-K_{c} P_{h} P_{c} \\ \\
-\frac{\partial P_{c}}{\partial t}=K_{c} P_{h} P_{c}-K_{r} P_{c}-K_{d} P_{c} \\ \\
-\frac{\partial P_{r}}{\partial t}=K_{r} P_{c} \\ \\
-\frac{\partial P_{d}}{\partial r}=K_{d} P_{c} \\ \\
-P_h = P_{h_0} \quad \mathrm{and}  \quad P_c = P_{c_0} \quad \mathrm{for} \quad t=0
-\end{array}\right.$$
+<img src="https://render.githubusercontent.com/render/math?math=\left\{\begin{array}{l}\frac{\partial P_{h}}{\partial t}=-K_{c} P_{h} P_{c} \\ \\\frac{\partial P_{c}}{\partial t}=K_{c} P_{h} P_{c}-K_{r} P_{c}-K_{d} P_{c} \\ \\\frac{\partial P_{r}}{\partial t}=K_{r} P_{c} \\ \\\frac{\partial P_{d}}{\partial r}=K_{d} P_{c} \\ \\P_h = P_{h_0} \quad \mathrm{and}  \quad P_c = P_{c_0} \quad \mathrm{for} \quad t=0\end{array}\right. = -1">
 where $$K_c$$ is the contamination probability, $$K_r$$ is the recovery probability, $$K_d$$ is the death probability.
 
 We'll assume the contamination probability increases with people's mobility $$v$$.
