@@ -1,7 +1,7 @@
 # epidemic-simulator
 
 Many countries in Europe are currently on lockdown. Yet many people still choose to go out in the street despite the control measures!
-We'll try to explain why applying control measures and lockdown** during an epidemic are indeed **a good thing** !
+We'll try to explain why applying control measures and lockdown** during an epidemic are indeed **a good thing**!
 
 
 Let's first try to create a **mathematical model** that represents the population and the way some get contaminated, some recover, and some people die.
@@ -27,7 +27,7 @@ Here <img src="https://render.githubusercontent.com/render/math?math=0.4"> is ar
 First, more and more people get contaminated. Then as people recover and developp antibodies, a contamination peak can be seen after which contaminated population decreases until reaching zero: the epidemic has ended.
 By decreasing people's mobility, the contamination peak is delayed and is less significant in terms of contaminated people. Also the epidemic ends later.
 
-Overall, **the cuvre has been flatten** !
+Overall, **the cuvre has been flatten**!
 
 **Great! But why would we care ?**
 
@@ -35,7 +35,7 @@ Well let's take a look at the ammount of dead people now...
 <p align="center">
     <img src="https://user-images.githubusercontent.com/40028739/76974131-1ed7e200-6931-11ea-9654-324073f08d50.png" alt="drawing"/>
 </p>
-Here we start to see the importance of taking control measures! As the mobility decreases, the number of dead people decreases as well !
+Here we start to see the importance of taking control measures! As the mobility decreases, the number of dead people decreases as well!
 That's because if less people are sick, then obviously less people a likely to die from the disease!
 
 But that's not quite the way our health system works right ? People don't miraculously heal themselves (at least not all of them): some of them go to the hospital. And if there are too many patients then ... it is more likely that people will die and heal less rapidly.
@@ -46,4 +46,9 @@ What will happen then ?
 <img src="https://user-images.githubusercontent.com/40028739/76974014-f9e36f00-6930-11ea-8da8-2cf38e16fe74.png" alt="drawing" width="420"/><img src="https://user-images.githubusercontent.com/40028739/76974237-3fa03780-6931-11ea-9d15-87671ad77bbf.png" alt="drawing" width="420"/>
 
 We added to the previous graphs dashed lines corresponding to the extended model with a hospital saturation limit.
-If people's mobility is not reduced enough the number of sick people increases by 12%! But more important is that **the number of deaths almost doubled** !
+If people's mobility is not reduced enough the number of sick people increases by 12%! But more important is that **the number of deaths almost doubled**!
+
+That's pretty much it!
+The simple code I used is available if you wish to play with it and tweak the parameters a little!
+
+## Takeaway message: stay home!
