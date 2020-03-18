@@ -27,7 +27,7 @@ Here <img src="https://render.githubusercontent.com/render/math?math=0.4"> is ar
 First, more and more people get contaminated. Then as people recover and developp antibodies, a contamination peak can be seen after which contaminated population decreases until reaching zero: the epidemic has ended.
 By decreasing people's mobility, the contamination peak is delayed and is less significant in terms of contaminated people. Also the epidemic ends later.
 
-Overall, **the cuvre has been flatted**!
+Overall, **the curve has been flatted**!
 
 **Great! But why would we care ?**
 
