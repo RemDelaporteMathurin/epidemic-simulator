@@ -1,10 +1,10 @@
-from covid import *
+from epidemic import *
 
 C = 0.3
 for v in [1, 0.7, 0.5, 0.3]:
 
     time, sick, healthy, recovered, deads = \
-        calculate_covid(3, v, 200)
+        calculate_epidemic(3, v, 200)
     plt.figure(1)
     p1 = plt.plot(time, sick, label=r"$v = $"+str(v))
     plt.figure(2)
