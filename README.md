@@ -1,7 +1,7 @@
 # epidemic-simulator
 
 
-Let's name $$P_h$$ the healthy population, $$P_c$$ the contaminated population, $$P_r$$ the population which has recovered from the disease and produced its own antibodies and $$P_d$$ the population that has died.
+Let's name <img src="https://render.githubusercontent.com/render/math?math=P_h"> the healthy population, <img src="https://render.githubusercontent.com/render/math?math=P_c"> the contaminated population, <img src="https://render.githubusercontent.com/render/math?math=P_r"> the population which has recovered from the disease and produced its own antibodies and <img src="https://render.githubusercontent.com/render/math?math=P_d"> the population that has died.
 The temporal evolution of each population can be modelled with the following system of equations:
 <img src="https://render.githubusercontent.com/render/math?math=\left\{\begin{array}{l}\frac{\partial P_{h}}{\partial t}=-K_{c} P_{h} P_{c} \\ \\\frac{\partial P_{c}}{\partial t}=K_{c} P_{h} P_{c}-K_{r} P_{c}-K_{d} P_{c} \\ \\\frac{\partial P_{r}}{\partial t}=K_{r} P_{c} \\ \\\frac{\partial P_{d}}{\partial r}=K_{d} P_{c} \\ \\P_h = P_{h_0} \quad \mathrm{and}  \quad P_c = P_{c_0} \quad \mathrm{for} \quad t=0\end{array}\right">
 where <img src="https://render.githubusercontent.com/render/math?math=K_c"> is the contamination probability, <img src="https://render.githubusercontent.com/render/math?math=K_r"> is the recovery probability, <img src="https://render.githubusercontent.com/render/math?math=K_d"> is the death probability.
@@ -10,7 +10,7 @@ We'll assume the contamination probability increases with people's mobility <img
 <img src="https://render.githubusercontent.com/render/math?math=v = 0"> would mean that people are 100% immobile.
 <img src="https://render.githubusercontent.com/render/math?math=K_c = 0.4*v">
 
-Here $$0.4$$ is arbitrary.
+Here <img src="https://render.githubusercontent.com/render/math?math=0.4"> is arbitrary.
 
 How does it look like ?
 
@@ -26,12 +26,12 @@ Well let's take a look at the ammount of dead people now...
 <p align="center">
     <img src="https://user-images.githubusercontent.com/40028739/76974131-1ed7e200-6931-11ea-9654-324073f08d50.png" alt="drawing"/>
 </p>
-Here we start to see the importance of taking control measures! As the mobility $$v$$ decreases, the number of dead people decreases as well !
+Here we start to see the importance of taking control measures! As the mobility <img src="https://render.githubusercontent.com/render/math?math=v"> decreases, the number of dead people decreases as well !
 That's because if less people are sick, then obviously less people a likely to die from the disease!
 
 But that's not quite the way our health system works right ? People don't miraculously heal themselves (at least not all of them): some of them go to the hospital. And if there are too many patients then ... it is more likely that people will die and heal less rapidly.
 
-In order to take this effect into account in our model, let's first assume a hospital capacity $$C$$. If the number of sick people is above this capacity, the recovering probability $$K_r$$ will decrease by 50% and the death probability $$K_d$$ will increase by 50%.
+In order to take this effect into account in our model, let's first assume a hospital capacity <img src="https://render.githubusercontent.com/render/math?math=C">. If the number of sick people is above this capacity, the recovering probability <img src="https://render.githubusercontent.com/render/math?math=K_r"> will decrease by 50% and the death probability <img src="https://render.githubusercontent.com/render/math?math=K_d"> will increase by 50%.
 What will happen then ?
 
 <img src="https://user-images.githubusercontent.com/40028739/76974014-f9e36f00-6930-11ea-8da8-2cf38e16fe74.png" alt="drawing" width="420"/><img src="https://user-images.githubusercontent.com/40028739/76974237-3fa03780-6931-11ea-9d15-87671ad77bbf.png" alt="drawing" width="420"/>
