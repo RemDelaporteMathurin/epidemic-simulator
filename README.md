@@ -1,7 +1,11 @@
 # epidemic-simulator
 
+Many countries in Europe are currently on lockdown. Yet many people still choose to go out in the street despite the control measures!
+We'll try to explain why applying control measures and lockdown** during an epidemic are indeed **a good thing** !
 
-Let's name <img src="https://render.githubusercontent.com/render/math?math=P_h"> the healthy population, <img src="https://render.githubusercontent.com/render/math?math=P_c"> the contaminated population, <img src="https://render.githubusercontent.com/render/math?math=P_r"> the population which has recovered from the disease and produced its own antibodies and <img src="https://render.githubusercontent.com/render/math?math=P_d"> the population that has died.
+
+Let's first try to create a **mathematical model** that represents the population and the way some get contaminated, some recover, and some people die.
+We'll name <img src="https://render.githubusercontent.com/render/math?math=P_h"> the **h**ealthy population, <img src="https://render.githubusercontent.com/render/math?math=P_c"> the **c**ontaminated population, <img src="https://render.githubusercontent.com/render/math?math=P_r"> the population which has **r**ecovered from the disease and produced its own antibodies and <img src="https://render.githubusercontent.com/render/math?math=P_d"> the part of the population that has **d**ied.
 The temporal evolution of each population can be modelled with the following system of equations:
 
 <img src="https://render.githubusercontent.com/render/math?math=\left\{\begin{array}{l}\frac{\partial P_{h}}{\partial t}=-K_{c} P_{h} P_{c} \\ \\\frac{\partial P_{c}}{\partial t}=K_{c} P_{h} P_{c}-K_{r} P_{c}-K_{d} P_{c} \\ \\\frac{\partial P_{r}}{\partial t}=K_{r} P_{c} \\ \\\frac{\partial P_{d}}{\partial r}=K_{d} P_{c} \\ \\P_h = P_{h_0} \quad \mathrm{and}  \quad P_c = P_{c_0} \quad \mathrm{for} \quad t=0\end{array}\right.">
@@ -11,11 +15,11 @@ where <img src="https://render.githubusercontent.com/render/math?math=K_c"> is t
 We'll assume the contamination probability increases with people's mobility <img src="https://render.githubusercontent.com/render/math?math=v">.
 If people were 100% immobile that would mean <img src="https://render.githubusercontent.com/render/math?math=v = 0"> .
 
-<img src="https://render.githubusercontent.com/render/math?math=K_c = 0.4*v">
+<img src="https://render.githubusercontent.com/render/math?math=K_c = 0.4 \cdotv">
 
 Here <img src="https://render.githubusercontent.com/render/math?math=0.4"> is arbitrary.
 
-How does it look like ?
+**How does it look like ?**
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/40028739/76973966-e6380880-6930-11ea-8ec8-cf7c3003f69f.png" alt="drawing"/>
