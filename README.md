@@ -28,7 +28,9 @@ By decreasing people's mobility, the contamination peak is delayed and is less s
 **Great! But why would we care ?**
 
 Well let's take a look at the ammount of dead people now...
+
 ![dead_people_simple](https://user-images.githubusercontent.com/40028739/76974131-1ed7e200-6931-11ea-9654-324073f08d50.png)
+
 Here we start to see the importance of taking control measures! As the mobility $$v$$ decreases, the number of dead people decreases as well !
 That's because if less people are sick, then obviously less people a likely to die from the disease!
 
@@ -37,8 +39,7 @@ But that's not quite the way our health system works right ? People don't miracu
 In order to take this effect into account in our model, let's first assume a hospital capacity $$C$$. If the number of sick people is above this capacity, the recovering probability $$K_r$$ will decrease by 50% and the death probability $$K_d$$ will increase by 50%.
 What will happen then ?
 
-<img src="https://user-images.githubusercontent.com/40028739/76974014-f9e36f00-6930-11ea-8da8-2cf38e16fe74.png" alt="drawing" width="400"/>
-<img src="https://user-images.githubusercontent.com/40028739/76974237-3fa03780-6931-11ea-9d15-87671ad77bbf.png" alt="drawing" width="400"/>
+<img src="https://user-images.githubusercontent.com/40028739/76974014-f9e36f00-6930-11ea-8da8-2cf38e16fe74.png" alt="drawing" width="400"/><img src="https://user-images.githubusercontent.com/40028739/76974237-3fa03780-6931-11ea-9d15-87671ad77bbf.png" alt="drawing" width="400"/>
 
 We added to the previous graphs dashed lines corresponding to the extended model with a hospital saturation limit.
 If people's mobility is not reduced enough the number of sick people increases by 12%! But more important is that **the number of deaths almost doubled** !
