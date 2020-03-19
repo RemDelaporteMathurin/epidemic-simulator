@@ -16,7 +16,7 @@ where <img src="https://render.githubusercontent.com/render/math?math=K_c"> is t
 We'll assume the contamination probability increases with people's mobility <img src="https://render.githubusercontent.com/render/math?math=v">.
 If people were 100% immobile that would mean <img src="https://render.githubusercontent.com/render/math?math=v = 0"> . We'll assume that usual people's mobility is <img src="https://render.githubusercontent.com/render/math?math=v = 1"> .
 
-<img src="https://render.githubusercontent.com/render/math?math=K_c = 0.4 \cdotv">
+<img src="https://render.githubusercontent.com/render/math?math=K_c = 0.4 \cdot v">
 
 Here <img src="https://render.githubusercontent.com/render/math?math=0.4"> is arbitrary.
 
