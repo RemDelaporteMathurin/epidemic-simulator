@@ -64,7 +64,7 @@ def cost_function(x):
         N += coeff
 
     fitness /= 2*N
-    print(fitness, end='\r')
+    print("Fit accuracy : " + str(fitness), end='\r')
 
     return fitness
 
@@ -74,6 +74,7 @@ y_n = 70  # number of cases on 20-01
 time_cases, time_cases_number_days, sick_ref, time_deaths, \
     time_deaths_number_days, deaths_ref = read_ref_data("data/france/data_france.csv")
 x0 = (2.78, 6.08, 25, 1.9, 1, 2)
+print('Fitting...')
 res = scipy.optimize.minimize(cost_function, x0, method="Nelder-Mead")
 x_opt = res.x
 print(x_opt)
@@ -87,6 +88,7 @@ time, sick, healthy, recovered, deaths = epidemic.calculate_epidemic(
     K_d_0=K_d_0, K_d_plus=0)
 
 plt.figure()
+plt.title("France")
 plt.ylabel("Number of actives cases")
 plt.xlabel("Days")
 plt.plot(time, sick, label="Predicted cases")
@@ -94,6 +96,7 @@ plt.scatter(time_cases_number_days, sick_ref, label="Actual cases")
 plt.legend()
 
 plt.figure()
+plt.title("France")
 plt.xlabel("Days")
 plt.ylabel("Number of deaths")
 plt.plot(time, deaths, label="Predicted deaths")
