@@ -1,10 +1,19 @@
 # epidemic-simulator
-
-## Introduction
 Many countries in Europe and around the world are currently on lockdown. Yet many people still choose to go out in the street despite the control measures!
 We'll first explain why applying **control measures and lockdown** during an epidemic are indeed **a good thing** and then we'll then try to use this model to do some predictions !
+## Prerequisites
+This project uses [matplotlib](https://matplotlib.org/) and [scipy](https://www.scipy.org/).
+## Usage
+```
+python3 fit_any_country.py France
+```
+or
 
-
+```
+python3 fit_any_country.py China
+```
+will simulate the evolution of the epidemic in a specific country based on [pomber/covid19](https://github.com/pomber/covid19) dataset
+## Mathematical model
 Let's first try to create a **mathematical model** that represents the population and the way some get contaminated, some recover, and some people die.
 We'll name <img src="https://render.githubusercontent.com/render/math?math=P_h"> the **h**ealthy population, <img src="https://render.githubusercontent.com/render/math?math=P_c"> the **c**ontaminated population, <img src="https://render.githubusercontent.com/render/math?math=P_r"> the population which has **r**ecovered from the disease and produced its own antibodies and <img src="https://render.githubusercontent.com/render/math?math=P_d"> the part of the population that has **d**ied.
 The temporal evolution of each population can be modelled with the following system of equations:
