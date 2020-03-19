@@ -1,4 +1,5 @@
 from epidemic import *
+import matplotlib.pyplot as plt
 
 for v in [1, 0.7, 0.5, 0.3]:
 

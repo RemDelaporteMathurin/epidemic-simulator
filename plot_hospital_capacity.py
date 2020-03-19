@@ -1,4 +1,5 @@
 from epidemic import *
+import matplotlib.pyplot as plt
 
 C = 0.3
 for v in [1, 0.7, 0.5, 0.3]:
@@ -12,7 +13,7 @@ for v in [1, 0.7, 0.5, 0.3]:
     plt.figure(3)
     plt.plot(time, recovered, label=r"$v = $"+str(v))
     time_2, sick_2, healthy_2, recovered_2, deads_2 = \
-        calculate_covid(C, v, 200)
+        calculate_epidemic(C, v, 200)
     plt.figure(1)
     plt.plot(time_2, sick_2, linestyle='--', color=p1[0].get_color())
     plt.figure(2)
@@ -34,8 +35,8 @@ plt.xlabel("Time")
 plt.ylabel("Number of dead people")
 plt.legend()
 plt.figure(3)
-# plt.yticks([])
-# plt.xticks([])
+plt.yticks([])
+plt.xticks([])
 plt.xlabel("Time")
 plt.ylabel("Number of recovered people")
 plt.legend()
