@@ -1,7 +1,8 @@
 # epidemic-simulator
 
-Many countries in Europe are currently on lockdown. Yet many people still choose to go out in the street despite the control measures!
-We'll try to explain why applying control measures and lockdown** during an epidemic are indeed **a good thing**!
+## Introduction
+Many countries in Europe and around the world are currently on lockdown. Yet many people still choose to go out in the street despite the control measures!
+We'll first explain why applying control measures and lockdown** during an epidemic are indeed **a good thing** and then we'll then try to use this model to do some predictions !
 
 
 Let's first try to create a **mathematical model** that represents the population and the way some get contaminated, some recover, and some people die.
@@ -19,7 +20,9 @@ If people were 100% immobile that would mean <img src="https://render.githubuser
 
 Here <img src="https://render.githubusercontent.com/render/math?math=0.4"> is arbitrary.
 
-**What does it look like ?**
+## Effect of control measures
+
+**How does this model behaves in time ?**
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/40028739/76973966-e6380880-6930-11ea-8ec8-cf7c3003f69f.png" alt="drawing" width="500"/>
@@ -51,4 +54,26 @@ If people's mobility is not reduced enough **the number of sick people increases
 That's pretty much it!
 The simple code I used is available if you wish to play with it and tweak the parameters a little!
 
-## Takeaway message: stay home!
+### Takeaway message: stay home!
+
+
+## Model validation and predictions
+
+Alright. Is this model actually representing what's happening in reality ?
+One way to found out: try to reproduce actual epidemics that happened in the past!
+
+Let's do it with the recent Covid-19 epidemic in China that is nearly ended by now.
+The model's parameters (contamination, recovering and death rates) will be adjusted in order to fit actual data as best as we can.
+
+<img src="https://user-images.githubusercontent.com/40028739/77088712-249ef780-6a05-11ea-928e-d0be5377a65f.png" alt="drawing" width="420"/><img src="https://user-images.githubusercontent.com/40028739/77088713-25d02480-6a05-11ea-9160-bbc757bd59c8.png" alt="drawing" width="420"/>
+
+Not that bad afterall!
+We now know that our model can reproduce actual epidemic behaviour with more or less accuracy.
+Could we use this fitting process to try and predict the future ?
+I'd really like to know when I'll be authorised to go out again...so let's do it for France!
+
+<img src="https://user-images.githubusercontent.com/40028739/77089220-d63e2880-6a05-11ea-9e57-11e5e841a7cf.png" alt="drawing" width="420"/><img src="https://user-images.githubusercontent.com/40028739/77089226-d6d6bf00-6a05-11ea-964c-ac4c41c36605.png" alt="drawing" width="420"/>
+
+Alright, so this is obviously not as accurate as the case for China cause we simply don't have enough data yet. This means that the predictions will gain in accuracy day by day!
+But so far, all we can expect is the epidemic in France (assuming there won't be any change in the confinement measures) will be over at the end of April!
+We'll come back then and check if the results were okay!
