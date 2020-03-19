@@ -2,7 +2,7 @@
 
 ## Introduction
 Many countries in Europe and around the world are currently on lockdown. Yet many people still choose to go out in the street despite the control measures!
-We'll first explain why applying control measures and lockdown** during an epidemic are indeed **a good thing** and then we'll then try to use this model to do some predictions !
+We'll first explain why applying **control measures and lockdown** during an epidemic are indeed **a good thing** and then we'll then try to use this model to do some predictions !
 
 
 Let's first try to create a **mathematical model** that represents the population and the way some get contaminated, some recover, and some people die.
