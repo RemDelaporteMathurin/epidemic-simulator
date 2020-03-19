@@ -7,6 +7,11 @@ import csv
 from datetime import datetime
 import matplotlib.pyplot as plt
 
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("country", help="simulate the epidemic in this country. Ex: China")
+args = parser.parse_args()
+
 
 def days_between(d1, d2):
     d1 = datetime.strptime(d1, "%Y-%m-%d")
@@ -55,7 +60,7 @@ def cost_function(x):
 
     return fitness
 
-country = "Italy"
+country = args.country
 x_n = 1e5  # initial healthy population arbitrary
 time_cases, time_cases_number_days, sick_ref, time_deaths, \
     time_deaths_number_days, deaths_ref = read_ref_data(country)
