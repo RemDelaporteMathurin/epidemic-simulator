@@ -22,7 +22,7 @@ Here <img src="https://render.githubusercontent.com/render/math?math=0.4"> is ar
 **What does it look like ?**
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/40028739/76973966-e6380880-6930-11ea-8ec8-cf7c3003f69f.png" alt="drawing"/>
+    <img src="https://user-images.githubusercontent.com/40028739/76973966-e6380880-6930-11ea-8ec8-cf7c3003f69f.png" alt="drawing" width="800"/>
 </p>
 First, more and more people get contaminated. Then as people recover and developp antibodies, a contamination peak can be seen after which contaminated population decreases until reaching zero: the epidemic has ended.
 By decreasing people's mobility, the contamination peak is delayed and is less significant in terms of contaminated people. Also the epidemic ends later.
@@ -33,7 +33,7 @@ Overall, **the curve has been flatted**!
 
 Well let's take a look at the ammount of dead people now...
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/40028739/76974131-1ed7e200-6931-11ea-9654-324073f08d50.png" alt="drawing"/>
+    <img src="https://user-images.githubusercontent.com/40028739/76974131-1ed7e200-6931-11ea-9654-324073f08d50.png" alt="drawing" width="800"/>
 </p>
 Here we start to see the importance of taking control measures! As the mobility decreases, the number of dead people decreases as well!
 That's because if less people are sick, then obviously less people a likely to die from the disease!
