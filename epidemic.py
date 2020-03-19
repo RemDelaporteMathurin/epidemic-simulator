@@ -1,9 +1,8 @@
 from scipy.optimize import fsolve
-import matplotlib.pyplot as plt
 import math
 
 
-def calculate_epidemic(C, v, t_final):
+def calculate_epidemic(C, v, t_final, x_n=1, y_n=0.01, K_r_0=1/(51-32), K_r_minus=1/(51-32)/2, K_d_0=0.02, K_d_plus=0.01):
     '''
     Arguments:
     - C: Hospital capacity
@@ -11,11 +10,7 @@ def calculate_epidemic(C, v, t_final):
     - t_final: time of simulation
     Returns: 5 lists
     '''
-    dt = 1.2
-    K_r_0 = 1/(51-32)
-    K_r_minus = K_r_0/2
-    K_d_0 = 0.02
-    K_d_plus = K_d_0/2
+    dt = 1e-1
 
     def K_c(v):
         return 0.4*v
@@ -26,8 +21,6 @@ def calculate_epidemic(C, v, t_final):
     def K_d(y):
         return K_d_0 + K_d_plus/(1+math.exp(-100*(y - C)))
 
-    x_n = 1
-    y_n = 0.01
     z_n = 0
     d_n = 0
 
@@ -43,7 +36,7 @@ def calculate_epidemic(C, v, t_final):
     sick = []
     healthy = []
     recovered = []
-    deads = []
+    deaths = []
     t = 0
     while t < t_final:
         t += dt
@@ -54,6 +47,6 @@ def calculate_epidemic(C, v, t_final):
         sick.append(y)
         healthy.append(x)
         recovered.append(z)
-        deads.append(d)
+        deaths.append(d)
 
-    return time, sick, healthy, recovered, deads
+    return time, sick, healthy, recovered, deaths
