@@ -36,8 +36,10 @@ Here <img src="https://render.githubusercontent.com/render/math?math=0.4"> is ar
 <p align="center">
     <img src="https://user-images.githubusercontent.com/40028739/76973966-e6380880-6930-11ea-8ec8-cf7c3003f69f.png" alt="drawing" width="500"/>
 </p>
-First, more and more people get contaminated. Then as people recover and developp antibodies, a contamination peak can be seen after which contaminated population decreases until reaching zero: the epidemic has ended.
-By decreasing people's mobility, the contamination peak is delayed and is less significant in terms of contaminated people. Also the epidemic ends later.
+
+First, **more and more people get contaminated**. Then as people recover and developp antibodies, a **contamination peak** can be seen after which contaminated population **decreases until reaching zero**: the epidemic has ended.
+
+By decreasing people's mobility, the contamination peak is **delayed** and is **less significant** in terms of contaminated people. Also the epidemic ends later.
 
 Overall, **the curve has been flatted**!
 
@@ -47,8 +49,8 @@ Well let's take a look at the ammount of dead people now...
 <p align="center">
     <img src="https://user-images.githubusercontent.com/40028739/76974131-1ed7e200-6931-11ea-9654-324073f08d50.png" alt="drawing" width="500"/>
 </p>
-Here we start to see the importance of taking control measures! As the mobility decreases, the number of dead people decreases as well!
-That's because if less people are sick, then obviously less people a likely to die from the disease!
+Here we start to see the importance of taking control measures! **As the mobility decreases, deaths decreases as well!**
+That's because if less people get sick, then obviously less people a likely to die from the disease!
 
 But that's not quite the way our health system works right ? People don't miraculously heal themselves (at least not all of them): some of them go to the hospital. And if there are too many patients then ... it is more likely that people will die and heal less rapidly.
 
@@ -68,8 +70,8 @@ The simple code I used is available if you wish to play with it and tweak the pa
 
 ## Model validation and predictions
 
-Alright. Is this model actually representing what's happening in reality ?
-One way to found out: try to reproduce actual epidemics that happened in the past!
+Alright. Is this model actually representing what's **happening in reality** ?
+One way to found out: try to **reproduce actual epidemics** that happened in the past!
 
 Let's do it with the recent Covid-19 epidemic in China that is nearly ended by now.
 The model's parameters (contamination, recovering and death rates) will be adjusted in order to fit actual data as best as we can.
@@ -77,8 +79,8 @@ The model's parameters (contamination, recovering and death rates) will be adjus
 <img src="https://user-images.githubusercontent.com/40028739/77088712-249ef780-6a05-11ea-928e-d0be5377a65f.png" alt="drawing" width="420"/><img src="https://user-images.githubusercontent.com/40028739/77088713-25d02480-6a05-11ea-9160-bbc757bd59c8.png" alt="drawing" width="420"/>
 
 Not that bad afterall!
-We now know that our model can reproduce actual epidemic behaviour with more or less accuracy.
-Could we use this fitting process to try and predict the future ?
+We now know that **our model can reproduce actual epidemic behaviour** with more or less accuracy.
+Could we use this fitting process to try and **predict the future** ?
 I'd really like to know when I'll be authorised to go out again...so let's do it for France!
 
 <img src="https://user-images.githubusercontent.com/40028739/77089220-d63e2880-6a05-11ea-9e57-11e5e841a7cf.png" alt="drawing" width="420"/><img src="https://user-images.githubusercontent.com/40028739/77089226-d6d6bf00-6a05-11ea-964c-ac4c41c36605.png" alt="drawing" width="420"/>
