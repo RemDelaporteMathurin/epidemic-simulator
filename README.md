@@ -50,7 +50,7 @@ Well let's take a look at the ammount of dead people now...
     <img src="https://user-images.githubusercontent.com/40028739/76974131-1ed7e200-6931-11ea-9654-324073f08d50.png" alt="drawing" width="500"/>
 </p>
 
-Here we start to see the importance of taking control measures! **As the mobility decreases, deaths decreases as well!**
+Here we start to see the importance of taking control measures! **As the mobility decreases, deaths decrease as well!**
 That's because if less people get sick, then obviously less people a likely to die from the disease!
 
 But that's not quite the way our health system works right ? People don't miraculously heal themselves (at least not all of them): some of them go to the hospital. And if there are too many patients then ... it is more likely that people will die and heal less rapidly.
