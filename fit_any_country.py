@@ -5,7 +5,7 @@ import scipy.optimize
 from scipy import interpolate
 import csv
 import matplotlib.pyplot as plt
-
+from matplotlib import rc
 import argparse
 
 
@@ -71,20 +71,32 @@ time_sim, cases_sim, healthy_sim, recovered_sim, deaths_sim \
         C=0, v=v, x_n=x_n, y_n=y_n, t_final=60, K_r_0=K_r_0, K_r_minus=0,
         K_d_0=K_d_0, K_d_plus=0)
 
-plt.figure()
-plt.title(country)
-plt.ylabel("Number of actives cases")
-plt.xlabel("Days")
-plt.plot(time_sim, cases_sim, label="Predicted cases")
-plt.scatter(time_number_days, cases_ref, label="Actual cases")
-plt.legend()
 
-plt.figure()
-plt.title(country)
-plt.xlabel("Days")
-plt.ylabel("Number of deaths")
-plt.plot(time_sim, deaths_sim, label="Predicted deaths")
-plt.scatter(time_number_days, deaths_ref, label="Actual number of deaths")
-plt.legend()
+def plot(x1, y1, x2, y2, ylabel, legends, color):
+
+    fig, ax = plt.subplots()
+    plt.title(country)
+    plt.ylabel(ylabel)
+    plt.xlabel("Days")
+    plt.fill_between(x1, 0, y1, facecolor=color, alpha=0.1)
+    plt.plot(x1, y1, label=legends[0],
+             color=color, zorder=1)
+    plt.scatter(x2, y2, label=legends[1],
+                color=color, zorder=3, edgecolors="white", s=40)
+    plt.minorticks_on()
+    ax.grid(which='minor', alpha=0.3)
+    ax.grid(which='major', alpha=0.7)
+    ax.set_axisbelow(True)
+    plt.legend()
+
+
+plot(time_sim, cases_sim, time_number_days, cases_ref,
+     "Number of actives cases",
+     ["Predicted cases", "Actual cases"],
+     "tab:blue")
+plot(time_sim, deaths_sim, time_number_days, deaths_ref,
+     "Number of actives cases",
+     ["Predicted deaths", "Actual number of deaths"],
+     "tab:red")
 
 plt.show()
