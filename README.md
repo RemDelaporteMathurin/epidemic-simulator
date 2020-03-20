@@ -76,15 +76,15 @@ One way to found out: try to **reproduce actual epidemics** that happened in the
 Let's do it with the recent Covid-19 epidemic in China that is nearly ended by now.
 The model's parameters (contamination, recovering and death rates) will be adjusted in order to fit actual data as best as we can.
 
-<img src="https://user-images.githubusercontent.com/40028739/77088712-249ef780-6a05-11ea-928e-d0be5377a65f.png" alt="drawing" width="420"/><img src="https://user-images.githubusercontent.com/40028739/77088713-25d02480-6a05-11ea-9160-bbc757bd59c8.png" alt="drawing" width="420"/>
+<img src="https://user-images.githubusercontent.com/40028739/77149687-72ae0c80-6a92-11ea-831d-a09e8ad57611.png" alt="drawing" width="420"/><img src="https://user-images.githubusercontent.com/40028739/77149685-72ae0c80-6a92-11ea-90a3-173a5643ca19.png" alt="drawing" width="420"/>
 
 Not that bad afterall!
 We now know that **our model can reproduce actual epidemic behaviour** with more or less accuracy.
 Could we use this fitting process to try and **predict the future** ?
 I'd really like to know when I'll be authorised to go out again...so let's do it for France!
 
-<img src="https://user-images.githubusercontent.com/40028739/77089220-d63e2880-6a05-11ea-9e57-11e5e841a7cf.png" alt="drawing" width="420"/><img src="https://user-images.githubusercontent.com/40028739/77089226-d6d6bf00-6a05-11ea-964c-ac4c41c36605.png" alt="drawing" width="420"/>
+<img src="https://user-images.githubusercontent.com/40028739/77149693-76da2a00-6a92-11ea-963e-cfafe0ca5a15.png" alt="drawing" width="420"/><img src="https://user-images.githubusercontent.com/40028739/77149691-76da2a00-6a92-11ea-935f-cdb9d4a793be.png" alt="drawing" width="420"/>
 
 Alright, so this is obviously not as accurate as the case for China cause we simply don't have enough data yet. This means that the predictions will gain in accuracy day by day!
-But so far, all we can expect is the epidemic in France (assuming there won't be any change in the confinement measures) will be over at the end of April!
+But so far, all we can expect is that the epidemic in France (assuming there won't be any changes in the confinement measures) won't be over until the end of April!
 We'll come back then and check if the results were okay!
