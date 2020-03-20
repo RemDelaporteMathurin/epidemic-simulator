@@ -2,7 +2,8 @@ from scipy.optimize import fsolve
 import math
 
 
-def calculate_epidemic(C, v, t_final, x_n=1, y_n=0.01, K_r_0=1/(51-32), K_r_minus=1/(51-32)/2, K_d_0=0.02, K_d_plus=0.01):
+def calculate_epidemic(C, v, t_final, x_n=1, y_n=0.01, K_r_0=1/(51-32),
+                       K_r_minus=1/(51-32)/2, K_d_0=0.02, K_d_plus=0.01):
     '''
     Arguments:
     - C: Hospital capacity
@@ -10,7 +11,7 @@ def calculate_epidemic(C, v, t_final, x_n=1, y_n=0.01, K_r_0=1/(51-32), K_r_minu
     - t_final: time of simulation
     Returns: 5 lists
     '''
-    dt = 1e-1
+    dt = 5e-1
 
     def K_c(v):
         return 0.4*v
