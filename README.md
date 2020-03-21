@@ -1,16 +1,20 @@
 # epidemic-simulator
 Many countries in Europe and around the world are currently on lockdown. Yet many people still choose to go out in the street despite the control measures!
 We'll first explain why applying **control measures and lockdown** during an epidemic are indeed **a good thing** and then we'll then try to use this model to do some predictions !
-## Prerequisites
-This project uses [matplotlib](https://matplotlib.org/) and [scipy](https://www.scipy.org/).
+## Installation
+```
+$ git clone https://github.com/RemiTheWarrior/epidemic-simulator
+$ cd epidemic-simulator
+$ pip3 install -r requirements.txt
+```
 ## Usage
 ```
-python3 fit_any_country.py France
+$ python3 fit_any_country.py France
 ```
 or
 
 ```
-python3 fit_any_country.py China
+$ python3 fit_any_country.py China
 ```
 will simulate the evolution of the epidemic in a specific country based on [pomber/covid19](https://github.com/pomber/covid19) dataset
 ## Mathematical model
