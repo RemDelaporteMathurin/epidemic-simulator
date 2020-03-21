@@ -1,5 +1,5 @@
 from epidemic import calculate_epidemic
-from data import get_data
+from data import get_data, fetch_data, save_data
 
 import scipy.optimize
 from scipy import interpolate
@@ -16,7 +16,7 @@ parser.add_argument(
 args = parser.parse_args()
 
 
-def fit_country(country):
+def fit_country(country, save_to_json=True):
     def cost_function(x):
         (a, b, c, d, e, f) = x
         v = a*10**(-b)
@@ -67,6 +67,8 @@ def fit_country(country):
         = calculate_epidemic(
             C=0, v=v, x_n=x_n, y_n=y_n, t_final=60, K_r_0=K_r_0, K_r_minus=0,
             K_d_0=K_d_0, K_d_plus=0)
+    if save_to_json is True:
+        save_data(country, time, time_sim, cases_sim, deaths_sim)
     return time_sim, cases_sim, healthy_sim, recovered_sim, deaths_sim
 
 
