@@ -1,8 +1,11 @@
 import json
 import urllib
 import requests
+
 from datetime import datetime
 from datetime import timedelta
+
+import os
 
 
 def days_between(d1, d2):
@@ -42,14 +45,23 @@ def save_data(country, time, time_sim, cases_sim, deaths_sim):
         time_sim_date = datetime.strptime(time[0], "%Y-%m-%d") + \
             timedelta(days=time_sim[i])
         a = {
-            "date": time_sim_date.strftime("%Y-%m-%d"),
+            "date": time_sim_date.strftime("%Y-%m-%d, %H:%M:%S"),
             "cases_sim": cases_sim[i],
             "deaths_sim": deaths_sim[i]
         }
         export[country].append(a)
-    with open("data/" + time[-1] + ".json", 'r') as f:
+    jsonfile = "data/" + time[-1] + ".json"
+
+    if not os.path.exists(jsonfile):  # if file doesn't exist
+        # create empty file
+        with open(jsonfile, 'w+') as f:
+            json.dump({}, f, indent=4)
+    # read file content
+    with open(jsonfile, 'r') as f:
         data = json.load(f)
+    # update content
     data.update(export)
-    with open("data/" + time[-1] + ".json", 'w+') as f:
+    # write to file
+    with open(jsonfile, 'w+') as f:
         json.dump(data, f, indent=4)
     return 0

@@ -16,7 +16,7 @@ parser.add_argument(
 args = parser.parse_args()
 
 
-def fit_country(country, save_to_json=True):
+def fit_country(country, save_to_json=False):
     def cost_function(x):
         (a, b, c, d, e, f) = x
         v = a*10**(-b)
