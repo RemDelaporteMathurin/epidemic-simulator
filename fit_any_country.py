@@ -1,5 +1,5 @@
 from epidemic import calculate_epidemic
-from data import get_data
+from data import get_data, fetch_data, save_data
 
 import scipy.optimize
 from scipy import interpolate
@@ -9,14 +9,7 @@ from matplotlib import rc
 import argparse
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument(
-    "country",
-    help="simulate the epidemic in this country. Ex: China")
-args = parser.parse_args()
-
-
-def fit_country(country):
+def fit_country(country, save_to_json=False):
     def cost_function(x):
         (a, b, c, d, e, f) = x
         v = a*10**(-b)
@@ -67,6 +60,10 @@ def fit_country(country):
         = calculate_epidemic(
             C=0, v=v, x_n=x_n, y_n=y_n, t_final=60, K_r_0=K_r_0, K_r_minus=0,
             K_d_0=K_d_0, K_d_plus=0)
+
+    if save_to_json is True:
+        print("Saving...")
+        save_data(country, time, time_sim, cases_sim, deaths_sim)
     return time_sim, cases_sim, healthy_sim, recovered_sim, deaths_sim
 
 
@@ -89,17 +86,27 @@ def plot(x1, y1, x2, y2, ylabel, legends, color):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "country",
+        help="simulate the epidemic in this country. Ex: China")
+    parser.add_argument("--save", help="Save to JSON or not", default=False, action="store_true")
+    parser.add_argument("--noplot", help="Plot the results", default=False, action="store_true")
+    args = parser.parse_args()
+
     country = args.country
     time, time_number_days, cases_ref, deaths_ref = get_data(country)
     time_sim, cases_sim, healthy_sim, recovered_sim, deaths_sim = \
-        fit_country(country)
-    plot(time_sim, cases_sim, time_number_days, cases_ref,
-         "Number of actives cases",
-         ["Predicted cases", "Actual cases"],
-         "tab:blue")
-    plot(time_sim, deaths_sim, time_number_days, deaths_ref,
-         "Cumulative number of deaths",
-         ["Predicted deaths", "Actual number of deaths"],
-         "tab:red")
+        fit_country(country, save_to_json=args.save)
+
+    if not args.noplot:
+        plot(time_sim, cases_sim, time_number_days, cases_ref,
+             "Number of actives cases",
+             ["Predicted cases", "Actual cases"],
+             "tab:blue")
+        plot(time_sim, deaths_sim, time_number_days, deaths_ref,
+             "Cumulative number of deaths",
+             ["Predicted deaths", "Actual number of deaths"],
+             "tab:red")
 
     plt.show()
