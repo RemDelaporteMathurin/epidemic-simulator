@@ -60,7 +60,9 @@ def fit_country(country, save_to_json=False):
         = calculate_epidemic(
             C=0, v=v, x_n=x_n, y_n=y_n, t_final=60, K_r_0=K_r_0, K_r_minus=0,
             K_d_0=K_d_0, K_d_plus=0)
+
     if save_to_json is True:
+        print("Saving...")
         save_data(country, time, time_sim, cases_sim, deaths_sim)
     return time_sim, cases_sim, healthy_sim, recovered_sim, deaths_sim
 
@@ -88,19 +90,23 @@ if __name__ == "__main__":
     parser.add_argument(
         "country",
         help="simulate the epidemic in this country. Ex: China")
+    parser.add_argument("--save", help="Save to JSON or not", default=False, action="store_true")
+    parser.add_argument("--plot", help="Plot the results", default=True, action="store_true")
     args = parser.parse_args()
 
     country = args.country
     time, time_number_days, cases_ref, deaths_ref = get_data(country)
     time_sim, cases_sim, healthy_sim, recovered_sim, deaths_sim = \
-        fit_country(country)
-    plot(time_sim, cases_sim, time_number_days, cases_ref,
-         "Number of actives cases",
-         ["Predicted cases", "Actual cases"],
-         "tab:blue")
-    plot(time_sim, deaths_sim, time_number_days, deaths_ref,
-         "Cumulative number of deaths",
-         ["Predicted deaths", "Actual number of deaths"],
-         "tab:red")
+        fit_country(country, save_to_json=args.save)
+
+    if args.plot:
+        plot(time_sim, cases_sim, time_number_days, cases_ref,
+             "Number of actives cases",
+             ["Predicted cases", "Actual cases"],
+             "tab:blue")
+        plot(time_sim, deaths_sim, time_number_days, deaths_ref,
+             "Cumulative number of deaths",
+             ["Predicted deaths", "Actual number of deaths"],
+             "tab:red")
 
     plt.show()
