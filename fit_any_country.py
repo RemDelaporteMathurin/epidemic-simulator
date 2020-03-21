@@ -9,13 +9,6 @@ from matplotlib import rc
 import argparse
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument(
-    "country",
-    help="simulate the epidemic in this country. Ex: China")
-args = parser.parse_args()
-
-
 def fit_country(country, save_to_json=False):
     def cost_function(x):
         (a, b, c, d, e, f) = x
@@ -91,6 +84,12 @@ def plot(x1, y1, x2, y2, ylabel, legends, color):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "country",
+        help="simulate the epidemic in this country. Ex: China")
+    args = parser.parse_args()
+
     country = args.country
     time, time_number_days, cases_ref, deaths_ref = get_data(country)
     time_sim, cases_sim, healthy_sim, recovered_sim, deaths_sim = \
