@@ -91,7 +91,7 @@ if __name__ == "__main__":
         "country",
         help="simulate the epidemic in this country. Ex: China")
     parser.add_argument("--save", help="Save to JSON or not", default=False, action="store_true")
-    parser.add_argument("--plot", help="Plot the results", default=True, action="store_true")
+    parser.add_argument("--noplot", help="Plot the results", default=False, action="store_true")
     args = parser.parse_args()
 
     country = args.country
@@ -99,7 +99,7 @@ if __name__ == "__main__":
     time_sim, cases_sim, healthy_sim, recovered_sim, deaths_sim = \
         fit_country(country, save_to_json=args.save)
 
-    if args.plot:
+    if not args.noplot:
         plot(time_sim, cases_sim, time_number_days, cases_ref,
              "Number of actives cases",
              ["Predicted cases", "Actual cases"],
