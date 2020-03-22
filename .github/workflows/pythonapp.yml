@@ -25,7 +25,7 @@ jobs:
     - name: Install dependencies
       run: pip3 install -r requirements.txt
     - name: Run
-      run: python3 fit_any_country France --save --noplot
+      run: python3 fit_any_country.py France --save --noplot
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
