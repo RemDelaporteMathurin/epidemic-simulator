@@ -17,10 +17,16 @@ def calculate_epidemic(C, v, t_final, x_n=1, y_n=0.01, K_r_0=1/(51-32),
         return 0.4*v
 
     def K_r(y):
-        return K_r_0 - K_r_minus/(1+math.exp(-100*(y - C)))
+        if y < C:
+            return K_r_0
+        else:
+            return K_r_0 - K_r_minus
 
     def K_d(y):
-        return K_d_0 + K_d_plus/(1+math.exp(-100*(y - C)))
+        if y < C:
+            return K_d_0
+        else:
+            return K_d_0 + K_d_plus
 
     z_n = 0
     d_n = 0
