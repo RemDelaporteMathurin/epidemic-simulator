@@ -31,7 +31,7 @@ def get_data(country):
     for entry in data[country]:
         if float(entry["confirmed"]) > 50:
             time.append(entry["date"])
-            cases.append(float(entry["confirmed"]) - float(entry["recovered"]))
+            cases.append(float(entry["confirmed"]) - float(entry["recovered"]) - float(entry["deaths"]))
             deaths.append(float(entry["deaths"]))
     time_number_days = []
     for t in time:
