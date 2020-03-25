@@ -29,9 +29,9 @@ def fit_country(country, save_to_json=False):
 
         for i in range(len(time_number_days)):
             fitness += (abs(deaths_ref[i] - interp_deaths(time_number_days[i])) /
-                        max(deaths_ref))
+                        (max(deaths_ref)+1))
             fitness += (abs(cases_ref[i] - interp_cases(time_number_days[i])) /
-                        max(cases_ref))
+                        (max(cases_ref)+1))
             N += 2
 
         fitness /= N
@@ -90,8 +90,10 @@ if __name__ == "__main__":
     parser.add_argument(
         "country",
         help="simulate the epidemic in this country. Ex: China")
-    parser.add_argument("--save", help="Save to JSON or not", default=False, action="store_true")
-    parser.add_argument("--noplot", help="Plot the results", default=False, action="store_true")
+    parser.add_argument("--save", help="Save to JSON or not",
+                        default=False, action="store_true")
+    parser.add_argument("--noplot", help="Plot the results",
+                        default=False, action="store_true")
     args = parser.parse_args()
 
     country = args.country
