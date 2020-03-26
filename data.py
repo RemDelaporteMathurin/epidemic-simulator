@@ -29,9 +29,12 @@ def get_data(country):
     time, cases, deaths = [], [], []
     data = fetch_data()
     for entry in data[country]:
-        if float(entry["confirmed"]) > 50:
+        if float(entry["confirmed"]) > 50 and entry["recovered"] is not None:
             time.append(entry["date"])
-            cases.append(float(entry["confirmed"]) - float(entry["recovered"]) - float(entry["deaths"]))
+            cases.append(
+                float(entry["confirmed"]) -
+                float(entry["recovered"]) -
+                float(entry["deaths"]))
             deaths.append(float(entry["deaths"]))
     time_number_days = []
     for t in time:
