@@ -16,20 +16,22 @@ or
 ```
 $ python3 fit_any_country.py China
 ```
-will simulate the evolution of the epidemic in a specific country based on [pomber/covid19](https://github.com/pomber/covid19) dataset
+will simulate the evolution of the epidemic in a specific country based on [pomber/covid19](https://github.com/pomber/covid19) dataset.
+
+Alternatively, visit the [web application](https://epidemic-simulator.now.sh/#/).
 ## Mathematical model
 Let's first try to create a **mathematical model** that represents the population and the way some get contaminated, some recover, and some people die.
-We'll name <img src="https://render.githubusercontent.com/render/math?math=P_h"> the **h**ealthy population, <img src="https://render.githubusercontent.com/render/math?math=P_c"> the **c**ontaminated population, <img src="https://render.githubusercontent.com/render/math?math=P_r"> the population which has **r**ecovered from the disease and produced its own antibodies and <img src="https://render.githubusercontent.com/render/math?math=P_d"> the part of the population that has **d**ied.
+We'll name <img src="https://render.githubusercontent.com/render/math?math=S"> the **S**usceptible (healthy) population, <img src="https://render.githubusercontent.com/render/math?math=I"> the **I**nfected population, <img src="https://render.githubusercontent.com/render/math?math=R"> the population which has **R**ecovered from the disease and produced its own antibodies and <img src="https://render.githubusercontent.com/render/math?math=D"> the part of the population that has **D**ied.
 The temporal evolution of each population can be modelled with the following system of equations:
 
-<img src="https://render.githubusercontent.com/render/math?math=\left\{\begin{array}{l}\frac{\partial P_{h}}{\partial t}=-K_{c} P_{h} P_{c} \\ \\\frac{\partial P_{c}}{\partial t}=K_{c} P_{h} P_{c}-K_{r} P_{c}-K_{d} P_{c} \\ \\\frac{\partial P_{r}}{\partial t}=K_{r} P_{c} \\ \\\frac{\partial P_{d}}{\partial r}=K_{d} P_{c} \\ \\P_h = P_{h_0} \quad \mathrm{and}  \quad P_c = P_{c_0} \quad \mathrm{for} \quad t=0\end{array}\right.">
+<img src="https://render.githubusercontent.com/render/math?math=\left\{\begin{array}{l}\frac{\partial S}{\partial t}=-K_{i} S I \\ \\\frac{\partial I}{\partial t}=K_{i} S I-K_{r} I-K_{d} I \\ \\\frac{\partial R}{\partial t}=K_{r} I \\ \\\frac{\partial D}{\partial r}=K_{d} I \\ \\S = S_0 \quad \mathrm{and}  \quad I = I_0 \quad \mathrm{for} \quad t=0\end{array}\right.">
 
-where <img src="https://render.githubusercontent.com/render/math?math=K_c"> is the contamination probability, <img src="https://render.githubusercontent.com/render/math?math=K_r"> is the recovery probability, <img src="https://render.githubusercontent.com/render/math?math=K_d"> is the death probability.
+where <img src="https://render.githubusercontent.com/render/math?math=K_i"> is the contamination probability, <img src="https://render.githubusercontent.com/render/math?math=K_r"> is the recovery probability, <img src="https://render.githubusercontent.com/render/math?math=K_d"> is the death probability.
 
 We'll assume the contamination probability increases with people's mobility <img src="https://render.githubusercontent.com/render/math?math=v">.
 If people were 100% immobile that would mean <img src="https://render.githubusercontent.com/render/math?math=v = 0"> . We'll assume that usual people's mobility is <img src="https://render.githubusercontent.com/render/math?math=v = 1"> .
 
-<img src="https://render.githubusercontent.com/render/math?math=K_c = 0.4 \cdot v">
+<img src="https://render.githubusercontent.com/render/math?math=K_i = 0.4 \cdot v">
 
 Here <img src="https://render.githubusercontent.com/render/math?math=0.4"> is arbitrary.
 
