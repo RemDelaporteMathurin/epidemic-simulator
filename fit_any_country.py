@@ -11,10 +11,10 @@ import argparse
 
 def fit_country(country, save_to_json=False):
     def cost_function(x):
-        (a, b, c, d, e, f) = x
-        v = a*10**(-b)
-        K_r_0 = c*10**(-d)
-        K_d_0 = e*10**(-f)
+        (a, b, c) = x
+        v = 10**(-a)
+        K_r_0 = 10**(-b)
+        K_d_0 = 10**(-c)
         time_sim, cases_sim, healthy_sim, recovered_sim, deaths_sim \
             = calculate_epidemic(
                 C=0, v=v, x_n=x_n, y_n=y_n, t_final=max(time_number_days),
@@ -24,6 +24,8 @@ def fit_country(country, save_to_json=False):
             time_sim, cases_sim, fill_value='extrapolate')
         interp_deaths = interpolate.interp1d(
             time_sim, deaths_sim, fill_value='extrapolate')
+        interp_recovered = interpolate.interp1d(
+            time_sim, recovered_sim, fill_value='extrapolate')
         fitness = 0
         N = 0
 
@@ -32,7 +34,9 @@ def fit_country(country, save_to_json=False):
                         (max(deaths_ref)+1))
             fitness += (abs(cases_ref[i] - interp_cases(time_number_days[i])) /
                         (max(cases_ref)+1))
-            N += 2
+            fitness += (abs(recovered_ref[i] - interp_recovered(time_number_days[i])) /
+                                    (max(recovered_ref)+1))
+            N += 3
 
         fitness /= N
         print("Fit mean difference: " + str(fitness), end='\r')
@@ -40,18 +44,19 @@ def fit_country(country, save_to_json=False):
         return fitness
     x_n = 1e5  # initial healthy population arbitrary
 
-    time, time_number_days, cases_ref, deaths_ref = get_data(country)
+    time, time_number_days, cases_ref, deaths_ref, recovered_ref = \
+        get_data(country)
 
     y_n = cases_ref[0]
-    x0 = (2.78, 6.08, 25, 1.9, 1, 2)
+    x0 = (5, 1.9, 2)
     print('Fitting...')
     res = scipy.optimize.minimize(cost_function, x0, method="Nelder-Mead")
     x_opt = res.x
     print('-'*50)
-    (a, b, c, d, e, f) = x_opt
-    v = a*10**(-b)
-    K_r_0 = c*10**(-d)
-    K_d_0 = e*10**(-f)
+    (a, b, c) = x_opt
+    v = 10**(-a)
+    K_r_0 = 10**(-b)
+    K_d_0 = 10**(-c)
     print("Fit mean difference: " + "{:.2%}".format(res.fun))
     print("K_c = %.2e" % v)
     print("K_r = %.2e" % K_r_0)
@@ -97,7 +102,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     country = args.country
-    time, time_number_days, cases_ref, deaths_ref = get_data(country)
+    time, time_number_days, cases_ref, deaths_ref, recovered_ref = get_data(country)
     time_sim, cases_sim, healthy_sim, recovered_sim, deaths_sim = \
         fit_country(country, save_to_json=args.save)
 
@@ -110,5 +115,9 @@ if __name__ == "__main__":
              "Cumulative number of deaths",
              ["Predicted deaths", "Actual number of deaths"],
              "tab:red")
+        plot(time_sim, recovered_sim, time_number_days, recovered_ref,
+             "Cumulative number of recovered",
+             ["Predicted recovered", "Actual number of recovered"],
+             "tab:green")
 
     plt.show()
