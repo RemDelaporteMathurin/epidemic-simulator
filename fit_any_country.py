@@ -32,11 +32,11 @@ def fit_country(country, save_to_json=False):
         for i in range(len(time_number_days)):
             fitness += (abs(deaths_ref[i] - interp_deaths(time_number_days[i])) /
                         (max(deaths_ref)+1))
-            fitness += (abs(cases_ref[i] - interp_cases(time_number_days[i])) /
+            fitness += 10*(abs(cases_ref[i] - interp_cases(time_number_days[i])) /
                         (max(cases_ref)+1))
             fitness += (abs(recovered_ref[i] - interp_recovered(time_number_days[i])) /
                                     (max(recovered_ref)+1))
-            N += 3
+            N += 12
 
         fitness /= N
         print("Fit mean difference: " + str(fitness), end='\r')
