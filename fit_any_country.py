@@ -42,7 +42,12 @@ def fit_country(country, save_to_json=False):
         print("Fit mean difference: " + str(fitness), end='\r')
 
         return fitness
-    x_n = 1e5  # initial healthy population arbitrary
+    if country == "China":
+        x_n = 1e5
+    elif country == "US":
+        x_n = 6e5  # initial healthy population arbitrary
+    else:
+        x_n = 2e5
 
     time, time_number_days, cases_ref, deaths_ref, recovered_ref = \
         get_data(country)
@@ -63,7 +68,7 @@ def fit_country(country, save_to_json=False):
     print("K_d = %.2e" % K_d_0)
     time_sim, cases_sim, healthy_sim, recovered_sim, deaths_sim \
         = calculate_epidemic(
-            C=0, v=v, x_n=x_n, y_n=y_n, t_final=time_number_days[-1] + 50, K_r_0=K_r_0, K_r_minus=0,
+            C=0, v=v, x_n=x_n, y_n=y_n, t_final=time_number_days[-1] + 100, K_r_0=K_r_0, K_r_minus=0,
             K_d_0=K_d_0, K_d_plus=0)
 
     if save_to_json is True:
